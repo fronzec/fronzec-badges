@@ -5,4 +5,10 @@ import './global.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const container = document.getElementById('app');
-ReactDOM.render(<Badge/>, container);
+ReactDOM.render(<Badge firstName={"Eduardo"}
+                       lastName={"Flores"}
+                       jobTitle={"Software Engineer"}
+                       twitterId={"fronzec"}
+                       email={"efloresambrosio@gmail.com"}
+                       hashtag={"backend"}/>,
+    container);

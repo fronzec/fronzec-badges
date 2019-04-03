@@ -1,7 +1,9 @@
 import React from 'react';
 // Podemos importar una archivo de esta manera, webpack permite esto, al final se traduce a una URL
 import confLogo from '../images/badge-header.svg';
+import customConfLogo from '../images/pattern_header.svg';
 import "./styles/Badge.css";
+import md5 from 'md5';
 
 class Badge extends React.Component {
 
@@ -12,15 +14,16 @@ class Badge extends React.Component {
                     <img src={confLogo} alt="Logo de la conferencia"/>
                 </div>
                 <div className="badge_section-name">
-                    <img src="https://www.gravatar.com/avatar/?d=identicon" alt="Avatar"/>
-                    <h1>Eduardo <br/> Flores</h1>
+                    <img className="badge_avatar"
+                         src={`https://www.gravatar.com/avatar/${md5(this.props.email)}?s=120`}/>
+                    <h1>{this.props.firstName} <br/> {this.props.lastName}</h1>
                 </div>
                 <div className="badge_section-info">
-                    <h3>Software Engineer</h3>
-                    <div>@fronzec</div>
+                    <h3>{this.props.jobTitle}</h3>
+                    <div>@{this.props.twitterId}</div>
                 </div>
                 <div className="badge_footer">
-                    #platziconf
+                    #{this.props.hashtag}
                 </div>
             </div>
         );
